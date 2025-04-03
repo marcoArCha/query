@@ -3029,3 +3029,319 @@ INNER JOIN Clientes c ON o.ClienteID = c.ClienteID
 GROUP BY c.Nombre;
 Explicación:
 Calcula la diferencia de días entre la primera y la última compra de cada cliente.
+
+
+1. Búsqueda simple con match
+Busca documentos donde el campo description contenga la palabra "robot".
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "match": {
+      "description": "robot"
+    }
+  }
+}
+2. Búsqueda exacta con term
+Devuelve documentos donde status sea exactamente "active".
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "term": {
+      "status": "active"
+    }
+  }
+}
+3. Búsqueda con múltiples términos (terms)
+Busca documentos donde category sea "electronics" o "mechanics".
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "terms": {
+      "category": ["electronics", "mechanics"]
+    }
+  }
+}
+4. Búsqueda con range (rango de fechas o números)
+Encuentra documentos con price entre 100 y 500.
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "range": {
+      "price": {
+        "gte": 100,
+        "lte": 500
+      }
+    }
+  }
+}
+5. Búsqueda con bool (must, should, must_not)
+Encuentra documentos donde title contenga "robot", el price sea mayor a 1000 y status NO sea "inactive".
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "title": "robot" } },
+        { "range": { "price": { "gt": 1000 } } }
+      ],
+      "must_not": [
+        { "term": { "status": "inactive" } }
+      ]
+    }
+  }
+}
+6. Filtrado con filter para rendimiento
+Busca documentos donde category sea "software" y price esté entre 200 y 800, sin afectar la relevancia.
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "filtered": {
+      "query": { "match_all": {} },
+      "filter": {
+        "bool": {
+          "must": [
+            { "term": { "category": "software" } },
+            { "range": { "price": { "gte": 200, "lte": 800 } } }
+          ]
+        }
+      }
+    }
+  }
+}
+7. Agregaciones (aggregations) - Agrupar por campo
+Cuenta cuántos documentos hay por cada category.
+
+json
+Copiar
+Editar
+{
+  "aggs": {
+    "group_by_category": {
+      "terms": {
+        "field": "category"
+      }
+    }
+  }
+}
+8. Agregación con estadísticas (stats)
+Calcula el mínimo, máximo, promedio y suma de price.
+
+json
+Copiar
+Editar
+{
+  "aggs": {
+    "price_stats": {
+      "stats": {
+        "field": "price"
+      }
+    }
+  }
+}
+9. Agregación por rango (range)
+Cuenta cuántos productos hay en rangos de precios específicos.
+
+json
+Copiar
+Editar
+{
+  "aggs": {
+    "price_ranges": {
+      "range": {
+        "field": "price",
+        "ranges": [
+          { "to": 100 },
+          { "from": 100, "to": 500 },
+          { "from": 500 }
+        ]
+      }
+    }
+  }
+}
+10. Ordenar resultados (sort)
+Ordena los documentos por price de menor a mayor.
+
+json
+Copiar
+Editar
+{
+  "query": { "match_all": {} },
+  "sort": [
+    { "price": { "order": "asc" } }
+  ]
+}
+Dime si necesitas más ejemplos o algo específico para la entrevista.
+
+
+
+
+
+
+
+Tú dijiste:
+mas ejemplos con bool, must, range, donde se pidan varios filtros
+
+
+ChatGPT Plus
+Aquí tienes más ejemplos avanzados con bool, must, range y múltiples filtros en Elasticsearch 2.4.
+
+1. Búsqueda con múltiples condiciones (must)
+Encuentra productos:
+
+Donde category sea "electronics".
+
+Donde price esté entre 100 y 500.
+
+Donde stock sea mayor a 10.
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "term": { "category": "electronics" } },
+        { "range": { "price": { "gte": 100, "lte": 500 } } },
+        { "range": { "stock": { "gt": 10 } } }
+      ]
+    }
+  }
+}
+2. Combinación de must y must_not
+Encuentra productos que:
+
+Tengan "robot" en title.
+
+Sean de la category "automation".
+
+No tengan el status "out_of_stock".
+
+Cuesten más de 500.
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "title": "robot" } },
+        { "term": { "category": "automation" } },
+        { "range": { "price": { "gt": 500 } } }
+      ],
+      "must_not": [
+        { "term": { "status": "out_of_stock" } }
+      ]
+    }
+  }
+}
+3. Filtrado con filter para rendimiento
+Encuentra usuarios que:
+
+Tengan entre 25 y 40 años.
+
+Sean de "Mexico" o "Spain".
+
+No tengan el campo banned como true.
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "filtered": {
+      "query": { "match_all": {} },
+      "filter": {
+        "bool": {
+          "must": [
+            { "range": { "age": { "gte": 25, "lte": 40 } } },
+            { "terms": { "country": ["Mexico", "Spain"] } }
+          ],
+          "must_not": [
+            { "term": { "banned": true } }
+          ]
+        }
+      }
+    }
+  }
+}
+4. Combinación de should, must, y must_not
+Encuentra trabajos que:
+
+Sean de "developer" o "engineer".
+
+Tengan un salary entre 3000 y 10000.
+
+No estén en "expired".
+
+Prefiera (should) los que incluyan "remote" en title.
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "terms": { "job_title": ["developer", "engineer"] } },
+        { "range": { "salary": { "gte": 3000, "lte": 10000 } } }
+      ],
+      "must_not": [
+        { "term": { "status": "expired" } }
+      ],
+      "should": [
+        { "match": { "title": "remote" } }
+      ]
+    }
+  }
+}
+5. Búsqueda en rango de fechas con filtros
+Encuentra documentos creados en los últimos 30 días, donde:
+
+category sea "finance".
+
+views sean más de 1000.
+
+No tenga status: archived.
+
+json
+Copiar
+Editar
+{
+  "query": {
+    "filtered": {
+      "query": { "match_all": {} },
+      "filter": {
+        "bool": {
+          "must": [
+            { "term": { "category": "finance" } },
+            { "range": { "views": { "gt": 1000 } } },
+            { "range": { "created_at": { "gte": "now-30d/d" } } }
+          ],
+          "must_not": [
+            { "term": { "status": "archived" } }
+          ]
+        }
+      }
+    }
+  }
+}
