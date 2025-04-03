@@ -1,0 +1,3031 @@
+🔹 Fáciles (10%)
+Seleccionar todos los elementos <book> en un documento XML de libros.
+
+xpath
+Copiar
+Editar
+//book
+Seleccionar el título de todos los libros.
+
+xpath
+Copiar
+Editar
+//book/title
+Seleccionar el primer libro en el documento.
+
+xpath
+Copiar
+Editar
+(//book)[1]
+Seleccionar todos los atributos id de los libros.
+
+xpath
+Copiar
+Editar
+//book/@id
+Seleccionar todos los elementos <author> dentro de <book>.
+
+xpath
+Copiar
+Editar
+//book/author
+🔸 Dificultad Media (80%)
+Seleccionar todos los libros cuyo precio sea mayor a 20.
+
+xpath
+Copiar
+Editar
+//book[price > 20]
+Seleccionar los libros cuyo autor sea "John Doe".
+
+xpath
+Copiar
+Editar
+//book[author = 'John Doe']
+Seleccionar los títulos de los libros cuyo precio esté entre 10 y 30.
+
+xpath
+Copiar
+Editar
+//book[price >= 10 and price <= 30]/title
+Seleccionar todos los libros que tengan un atributo category.
+
+xpath
+Copiar
+Editar
+//book[@category]
+Seleccionar los libros que no tienen el atributo discount.
+
+xpath
+Copiar
+Editar
+//book[not(@discount)]
+Seleccionar el último libro en el documento.
+
+xpath
+Copiar
+Editar
+(//book)[last()]
+Seleccionar todos los elementos <title> que no contengan "XML" en su texto.
+
+xpath
+Copiar
+Editar
+//title[not(contains(., 'XML'))]
+Seleccionar los libros que tienen exactamente dos autores.
+
+xpath
+Copiar
+Editar
+//book[count(author) = 2]
+Seleccionar los títulos de libros escritos por más de un autor.
+
+xpath
+Copiar
+Editar
+//book[count(author) > 1]/title
+Seleccionar los libros cuyo precio sea menor al precio del primer libro.
+
+xpath
+Copiar
+Editar
+//book[price < (//book/price)[1]]
+Seleccionar el título del libro más caro.
+
+xpath
+Copiar
+Editar
+//book[price = max(//book/price)]/title
+Seleccionar los libros cuyo título contenga la palabra "Java".
+
+xpath
+Copiar
+Editar
+//book[contains(title, 'Java')]
+Seleccionar los títulos de los libros donde el autor contenga "Smith".
+
+xpath
+Copiar
+Editar
+//book[author[contains(., 'Smith')]]/title
+Seleccionar los libros que tengan tanto título como autor.
+
+xpath
+Copiar
+Editar
+//book[title and author]
+Seleccionar todos los nodos hijos de <bookstore>.
+
+xpath
+Copiar
+Editar
+/bookstore/\*
+Seleccionar todos los nodos de texto dentro de <book>.
+
+xpath
+Copiar
+Editar
+//book/text()
+Seleccionar los libros cuyo precio no sea 0.
+
+xpath
+Copiar
+Editar
+//book[price != 0]
+Seleccionar el segundo autor de cada libro.
+
+xpath
+Copiar
+Editar
+//book/author[2]
+Seleccionar los libros cuyo título empiece con "Advanced".
+
+xpath
+Copiar
+Editar
+//book[starts-with(title, 'Advanced')]
+Seleccionar los títulos de los libros ordenados por precio ascendente.
+
+xpath
+Copiar
+Editar
+//book[price]/title
+Seleccionar los títulos de los libros que tengan un hermano <price>.
+
+xpath
+Copiar
+Editar
+//book[price]/title
+Seleccionar los libros cuyo título contenga "Data" y su precio sea mayor a 50.
+
+xpath
+Copiar
+Editar
+//book[contains(title, 'Data') and price > 50]
+Seleccionar todos los elementos <book> dentro de un <section>.
+
+xpath
+Copiar
+Editar
+//section/book
+Seleccionar los títulos de los libros que tengan al menos un autor.
+
+xpath
+Copiar
+Editar
+//book[author]/title
+Seleccionar los libros cuyo título tenga más de 10 caracteres.
+
+xpath
+Copiar
+Editar
+//book[string-length(title) > 10]
+Seleccionar los libros cuyo autor no sea "Jane Smith".
+
+xpath
+Copiar
+Editar
+//book[author != 'Jane Smith']
+Seleccionar los títulos de los libros donde el precio tenga decimales.
+
+xpath
+Copiar
+Editar
+//book[contains(price, '.')]
+Seleccionar los libros cuyo primer autor empiece con "A".
+
+xpath
+Copiar
+Editar
+//book[starts-with(author[1], 'A')]
+Seleccionar los títulos de los libros donde el atributo category sea "Fiction".
+
+xpath
+Copiar
+Editar
+//book[@category='Fiction']/title
+Seleccionar el tercer libro en el documento.
+
+xpath
+Copiar
+Editar
+(//book)[3]
+Seleccionar los libros que tengan más de un atributo.
+
+xpath
+Copiar
+Editar
+//book[count(@*) > 1]
+Seleccionar los títulos de los libros donde el precio sea mayor al promedio de todos los precios.
+
+xpath
+Copiar
+Editar
+//book[price > sum(//book/price) div count(//book/price)]/title
+Seleccionar los libros cuyo título sea el más largo en caracteres.
+
+xpath
+Copiar
+Editar
+//book[string-length(title) = max(//book/string-length(title))]
+Seleccionar los títulos de libros que tengan exactamente 3 palabras en su título.
+
+xpath
+Copiar
+Editar
+//book[count(tokenize(title, ' ')) = 3]/title
+Seleccionar los libros que tengan un atributo id que empiece con "B".
+
+xpath
+Copiar
+Editar
+//book[starts-with(@id, 'B')]
+🔺 Difíciles (10%)
+Seleccionar los libros cuyo precio sea el segundo más alto.
+
+xpath
+Copiar
+Editar
+//book[price = (//book/price)[last()-1]]
+Seleccionar los libros cuyo título sea único en el documento.
+
+xpath
+Copiar
+Editar
+//book[not(title = following::book/title) and not(title = preceding::book/title)]
+Seleccionar los libros cuyos autores sean únicos en el documento.
+
+xpath
+Copiar
+Editar
+//book[not(author = following::book/author) and not(author = preceding::book/author)]
+Seleccionar los libros cuyos precios sean múltiplos de 5.
+
+xpath
+Copiar
+Editar
+//book[price mod 5 = 0]
+Seleccionar el libro cuyo título contenga la mayor cantidad de caracteres diferentes.
+
+xpath
+Copiar
+Editar
+//book[string-length(translate(title, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', '')) = max(//book/string-length(translate(title, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', '')))]
+Si necesitas explicaciones o más ejercicios, dime. ¡Mucho éxito en tu entrevista! 🚀
+
+4o
+Tú dijiste:
+cual esl archivo XML de donde salieron las preguntas y respuestas?
+ChatGPT Plus
+El archivo XML del que se basan los ejercicios puede tener una estructura como esta:
+
+xml
+Copiar
+Editar
+<bookstore>
+<book id="B001" category="Fiction">
+<title>Advanced XML</title>
+<author>John Doe</author>
+<author>Jane Smith</author>
+<price>25.99</price>
+</book>
+<book id="B002" category="Non-Fiction">
+<title>Data Science Essentials</title>
+<author>Emily White</author>
+<price>45.00</price>
+</book>
+<book id="B003" category="Technology">
+<title>Java Programming</title>
+<author>Michael Johnson</author>
+<price>30.50</price>
+</book>
+<book id="B004" category="Fiction">
+<title>Deep Learning Fundamentals</title>
+<author>John Doe</author>
+<price>55.75</price>
+<discount>10%</discount>
+</book>
+<book id="B005" category="Technology">
+<title>Understanding Algorithms</title>
+<author>Alice Brown</author>
+<author>Bob Martin</author>
+<price>40.99</price>
+</book>
+</bookstore>
+Este XML representa una librería con varios libros, cada uno con atributos y elementos como title, author, price, category, y opcionalmente discount. Con esta estructura puedes probar los ejercicios de XPath en cualquier herramienta que soporte XPath 1.0.
+
+En Elasticsearch 2.4, una consulta GET /mi_indice/mi_tipo/\_search con un match busca documentos dentro de un índice específico que contengan ciertas palabras clave en un campo de texto.
+
+Aquí tienes un ejemplo real:
+
+1. Crear un índice y añadir documentos
+   Supongamos que tenemos un índice llamado libros y un tipo de documento novela (en Elasticsearch 7+ los "tipos" fueron eliminados, pero en la versión 2.4 todavía se usaban).
+
+bash
+Copiar
+Editar
+PUT /libros/novela/1
+{
+"titulo": "El señor de los anillos",
+"autor": "J.R.R. Tolkien",
+"descripcion": "Una épica historia de fantasía y aventura."
+}
+
+PUT /libros/novela/2
+{
+"titulo": "Cien años de soledad",
+"autor": "Gabriel García Márquez",
+"descripcion": "Una historia mágica sobre la familia Buendía."
+} 2. Hacer una búsqueda con match
+Ahora buscamos en el índice libros, dentro del tipo novela, aquellos documentos cuyo campo descripcion contenga la palabra "historia":
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"match": {
+"descripcion": "historia"
+}
+}
+} 3. Resultado esperado
+Elasticsearch devuelve los documentos que contienen la palabra "historia" en el campo descripcion. En este caso, ambos libros tienen la palabra en su descripción, por lo que podríamos obtener un resultado similar a este:
+
+json
+Copiar
+Editar
+{
+"hits": {
+"total": 2,
+"hits": [
+{
+"_index": "libros",
+"_type": "novela",
+"_id": "1",
+"_source": {
+"titulo": "El señor de los anillos",
+"autor": "J.R.R. Tolkien",
+"descripcion": "Una épica historia de fantasía y aventura."
+}
+},
+{
+"_index": "libros",
+"_type": "novela",
+"_id": "2",
+"_source": {
+"titulo": "Cien años de soledad",
+"autor": "Gabriel García Márquez",
+"descripcion": "Una historia mágica sobre la familia Buendía."
+}
+}
+]
+}
+}
+Si quieres que la búsqueda sea más estricta y solo coincida con "historia mágica", en lugar de "historia" por separado, puedes usar una búsqueda con match_phrase en lugar de match:
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"match_phrase": {
+"descripcion": "historia mágica"
+}
+}
+}
+Esto solo devolvería el libro de Gabriel García Márquez, ya que es el único que contiene la frase exacta "historia mágica".
+
+¿Quieres probar con más ejemplos o necesitas ajustar la consulta para un caso específico?
+
+4o
+Tú dijiste:
+mas ejemplos de queryes simples por favor
+ChatGPT Plus
+Aquí tienes más ejemplos de consultas simples en Elasticsearch 2.4 para que te familiarices con ellas:
+
+1. Buscar por coincidencia exacta (match)
+   Busca documentos donde el campo titulo contenga la palabra "anillos".
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"match": {
+"titulo": "anillos"
+}
+}
+} 2. Buscar con una frase exacta (match_phrase)
+Encuentra documentos donde el campo descripcion contenga exactamente "historia mágica".
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"match_phrase": {
+"descripcion": "historia mágica"
+}
+}
+} 3. Buscar documentos con varios términos (multi_match)
+Busca "fantasía" y "aventura" en varios campos al mismo tiempo: titulo y descripcion.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"multi_match": {
+"query": "fantasía aventura",
+"fields": ["titulo", "descripcion"]
+}
+}
+} 4. Buscar por ID específico (ids)
+Obtiene el documento con id = 1.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"ids": {
+"values": ["1"]
+}
+}
+} 5. Filtrar documentos con term (sin análisis de texto)
+Busca documentos donde el autor sea exactamente "Gabriel García Márquez".
+Ojo: term no analiza el texto, así que debe coincidir exactamente (mayúsculas, minúsculas, espacios).
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"term": {
+"autor": "Gabriel García Márquez"
+}
+}
+} 6. Filtrar documentos con range (búsqueda por rango)
+Encuentra libros publicados después del año 2000.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"range": {
+"año_publicacion": {
+"gt": 2000
+}
+}
+}
+}
+gt: mayor que (greater than)
+gte: mayor o igual que (greater than or equal)
+lt: menor que (less than)
+lte: menor o igual que (less than or equal)
+
+7. Buscar con varias condiciones (bool)
+   Encuentra libros que cumplan estas dos condiciones:
+   ✅ La descripcion contiene "historia"
+   ✅ El año_publicacion es mayor a 1950
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"bool": {
+"must": [
+{ "match": { "descripcion": "historia" }},
+{ "range": { "año_publicacion": { "gt": 1950 }}}
+]
+}
+}
+} 8. Ordenar resultados (sort)
+Ordena los libros por año_publicacion de más nuevo a más viejo.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"match_all": {}
+},
+"sort": [
+{ "año_publicacion": "desc" }
+]
+} 9. Obtener solo ciertos campos (\_source)
+Si solo necesitas los títulos sin toda la información extra.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"\_source": ["titulo"],
+"query": {
+"match_all": {}
+}
+} 10. Obtener todos los documentos (match_all)
+Devuelve todos los documentos sin ningún filtro.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"match_all": {}
+}
+}
+Estos son algunos ejemplos básicos de queries en Elasticsearch 2.4. Si necesitas algo más específico o tienes un caso de uso en mente, dime y te ayudo a ajustarlo. 🚀
+
+Tú dijiste:
+dame algunos ejemplos con consultas mas complejas por favor, recuerda que la version de elasticsearch es 2.4
+ChatGPT Plus
+Aquí tienes algunos ejemplos de consultas más avanzadas en Elasticsearch 2.4, usando combinaciones de filtros y queries más complejas.
+
+1. Búsqueda combinada con bool (must, should, must_not, filter)
+   Este query busca libros que:
+   ✅ Contengan "historia" en la descripcion.
+   ✅ Tengan un año_publicacion mayor a 1950.
+   ✅ Se prefiera si en el titulo aparece "fantasía".
+   ❌ No se incluyan libros de "Gabriel García Márquez".
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"bool": {
+"must": [
+{ "match": { "descripcion": "historia" }},
+{ "range": { "año_publicacion": { "gt": 1950 }}}
+],
+"should": [
+{ "match": { "titulo": "fantasía" }}
+],
+"must_not": [
+{ "term": { "autor": "Gabriel García Márquez" }}
+]
+}
+}
+}
+👉 should aumenta la relevancia si se cumple, pero no es obligatorio.
+👉 must_not excluye los documentos que coincidan.
+
+2. Filtrar y agrupar resultados (aggs)
+   Este query cuenta cuántos libros hay por autor.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"size": 0,
+"aggs": {
+"libros_por_autor": {
+"terms": { "field": "autor" }
+}
+}
+}
+📌 size: 0 significa que no queremos documentos, solo la agregación.
+
+📌 terms agrupa y cuenta documentos por autor.
+
+📌 Respuesta esperada:
+
+json
+Copiar
+Editar
+{
+"aggregations": {
+"libros_por_autor": {
+"buckets": [
+{ "key": "J.R.R. Tolkien", "doc_count": 5 },
+{ "key": "Gabriel García Márquez", "doc_count": 3 }
+]
+}
+}
+} 3. Filtrar con múltiples rangos (range)
+Encuentra libros publicados entre 1980 y 2000 que además tengan entre 200 y 500 páginas.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"bool": {
+"filter": [
+{ "range": { "año_publicacion": { "gte": 1980, "lte": 2000 }}},
+{ "range": { "num_paginas": { "gte": 200, "lte": 500 }}}
+]
+}
+}
+}
+🔹 filter es más eficiente que must, porque no afecta la puntuación de relevancia.
+
+4. Búsqueda con relevancia personalizada (function_score)
+   Este query aumenta la relevancia de libros publicados después del 2000.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"function_score": {
+"query": { "match": { "descripcion": "historia" }},
+"boost_mode": "multiply",
+"functions": [
+{
+"gauss": {
+"año_publicacion": {
+"origin": "2000",
+"scale": "10",
+"decay": 0.5
+}
+}
+}
+]
+}
+}
+}
+📌 Usa una función gauss que favorece libros recientes y reduce la relevancia de los más viejos.
+
+📌 boost_mode: multiply hace que el puntaje original de relevancia se multiplique por la función de puntuación.
+
+5. Buscar con sinónimos (match + analyzer)
+   Si tienes un campo configurado con un analizador de sinónimos, puedes buscar por palabras que tengan el mismo significado.
+
+Ejemplo: suponiendo que aventura y épico son sinónimos en tu análisis de texto:
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"match": {
+"descripcion": "aventura"
+}
+}
+}
+Esto también devolverá documentos que tengan "épico" en la descripcion.
+
+✅ Para que funcione, debes haber definido un analizador con sinónimos en el mapeo del índice.
+
+6. Búsqueda con palabras cercanas (match con fuzziness)
+   Este query permite encontrar palabras con errores ortográficos o ligeras variaciones, como "historiaa" en lugar de "historia".
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"match": {
+"descripcion": {
+"query": "historia",
+"fuzziness": "AUTO"
+}
+}
+}
+}
+📌 fuzziness: AUTO permite un número automático de cambios en la palabra.
+
+📌 Útil para búsquedas tolerantes a errores tipográficos.
+
+7. Búsqueda con varias condiciones (bool avanzado)
+   Encuentra libros que:
+   ✅ Contengan "fantasía" en titulo O "épico" en descripcion.
+   ✅ Sean de Tolkien.
+   ✅ NO sean publicados antes del 1950.
+
+bash
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"bool": {
+"should": [
+{ "match": { "titulo": "fantasía" }},
+{ "match": { "descripcion": "épico" }}
+],
+"must": [
+{ "match": { "autor": "J.R.R. Tolkien" }}
+],
+"must_not": [
+{ "range": { "año_publicacion": { "lt": 1950 }}}
+]
+}
+}
+}
+📌 should → Al menos uno de los términos debe coincidir.
+📌 must → Condiciones obligatorias.
+📌 must_not → Condiciones prohibidas.
+
+Estos son queries más avanzados en Elasticsearch 2.4. Si necesitas adaptar uno a tu caso específico, dime y lo ajustamos. 🚀
+
+Tú dijiste:
+gracias
+ChatGPT Plus
+¡De nada! Si necesitas más ejemplos o tienes dudas con Elasticsearch, aquí estoy. 💪🚀 ¡Éxito con tu preparación! 😃
+
+Tú dijiste:
+si me preguntan que es \_search, puedo decir que es el api de busqueda?
+ChatGPT Plus
+Sí, puedes decir que \_search es el endpoint de la API de búsqueda en Elasticsearch.
+
+Si quieres dar una respuesta más completa, podrías decir algo como:
+
+"\_search es el endpoint de la API de búsqueda de Elasticsearch que permite realizar consultas sobre los datos indexados. Se usa para buscar documentos con diferentes tipos de queries, aplicar filtros, ordenar resultados y agregar métricas con agregaciones."
+
+Si te preguntan más detalles, podrías mencionar que:
+
+Se usa con una petición GET o POST.
+
+Puede buscar en uno o varios índices.
+
+Permite realizar consultas en formato Query DSL (JSON).
+
+Se puede combinar con filtros y agregaciones para obtener resultados más específicos.
+
+Si necesitas más detalles o ejemplos, dime. ¡Sigue adelante con tu preparación! 🚀
+
+Tú dijiste:
+dame un ejemplo de Query DSL
+ChatGPT Plus
+Aquí tienes un ejemplo de una consulta en Query DSL en Elasticsearch 2.4:
+
+Ejemplo: Buscar libros publicados después del 2000 con la palabra "magia" en el título
+json
+Copiar
+Editar
+GET /libros/novela/\_search
+{
+"query": {
+"bool": {
+"must": [
+{ "match": { "titulo": "magia" } }
+],
+"filter": [
+{ "range": { "año_publicacion": { "gt": 2000 } } }
+]
+}
+},
+"sort": [
+{ "año_publicacion": "desc" }
+],
+"\_source": ["titulo", "autor", "año_publicacion"]
+}
+Explicación:
+✅ must → El título debe contener "magia".
+✅ filter → Solo libros con año_publicacion mayor a 2000.
+✅ sort → Ordena por año_publicacion, del más reciente al más antiguo.
+✅ \_source → Solo devuelve titulo, autor y año_publicacion (para reducir tamaño de respuesta).
+
+📌 Query DSL es el lenguaje JSON que usa Elasticsearch para estructurar consultas avanzadas. Se basa en objetos y permite combinar búsquedas de texto, filtros y agregaciones de manera flexible.
+
+Si necesitas más ejemplos, dime. ¡Sigue adelante con tu estudio! 🚀
+
+Tú dijiste:
+esto seria un ejemplo de query DSL: {
+"query":{
+"term":{
+"autor":"Gabriel Garcia Marquez"
+}
+}
+} correcto o incorrecto/
+ChatGPT Plus
+✅ Correcto, ese es un ejemplo válido de Query DSL en Elasticsearch 2.4.
+
+Explicación
+Este query busca documentos donde el campo autor sea exactamente "Gabriel Garcia Marquez".
+
+json
+Copiar
+Editar
+{
+"query": {
+"term": {
+"autor": "Gabriel Garcia Marquez"
+}
+}
+}
+🔹 term → Busca coincidencias exactas, sin analizar el texto.
+🔹 autor → Campo en el que se busca.
+🔹 "Gabriel Garcia Marquez" → Valor exacto que debe coincidir.
+
+⚠ Nota importante:
+El operador term no funciona bien con campos de tipo text, porque Elasticsearch los analiza y divide en tokens.
+Si el campo autor es text, deberías usar match:
+
+json
+Copiar
+Editar
+{
+"query": {
+"match": {
+"autor": "Gabriel Garcia Marquez"
+}
+}
+}
+Si autor es de tipo keyword, entonces term es correcto.
+
+Si tienes dudas sobre el tipo de dato, dime y te ayudo. ¡Sigue practicando! 🚀
+
+Tú dijiste:
+que es tipo keyword?
+ChatGPT Plus
+En Elasticsearch, el tipo keyword es un tipo de dato que almacena texto sin analizarlo, es decir, lo guarda tal cual, sin dividirlo en palabras ni aplicar transformaciones.
+
+Diferencia entre text y keyword
+Cuando defines un campo en un índice de Elasticsearch, puedes elegir entre text y keyword:
+
+Tipo ¿Cómo se almacena? ¿Cuándo usarlo? Ejemplo de búsqueda
+text Se analiza (se divide en palabras y se normaliza) Para búsquedas de texto completo (full-text search). match
+keyword Se guarda tal cual, sin modificarlo Para búsquedas exactas, filtros y agregaciones. term
+Ejemplo en un documento
+Supongamos que tenemos este documento:
+
+json
+Copiar
+Editar
+{
+"autor": "Gabriel Garcia Marquez"
+}
+Si autor es text, Elasticsearch lo analiza y lo convierte en los términos:
+
+json
+Copiar
+Editar
+["gabriel", "garcia", "marquez"]
+Así, si buscas "Garcia", sí se encontrará el documento, porque "Garcia" es un token independiente.
+
+Si autor es keyword, Elasticsearch lo almacena como una sola unidad:
+
+json
+Copiar
+Editar
+"Gabriel Garcia Marquez"
+En este caso, solo se encuentra si la búsqueda es exactamente igual, por ejemplo:
+
+✅ term: "Gabriel Garcia Marquez" (sí lo encuentra)
+❌ term: "Garcia Marquez" (no lo encuentra)
+
+Ejemplo de Mapeo en un Índice
+Si quieres definir un campo como keyword, lo harías así:
+
+json
+Copiar
+Editar
+PUT /mi_indice
+{
+"mappings": {
+"properties": {
+"autor": { "type": "keyword" }
+}
+}
+}
+Esto le indica a Elasticsearch que el campo autor no debe ser analizado y solo se usará para búsquedas exactas o agrupaciones (aggs).
+
+¿Cuándo usar keyword en lugar de text?
+✅ Para filtrar datos exactos, como nombres de usuario, correos, códigos de productos, países, etiquetas.
+✅ Para agrupar (aggs) y ordenar resultados por valores exactos.
+✅ Para búsquedas con term, terms, wildcard, prefix, etc.
+
+Si necesitas hacer búsquedas de texto completo (full-text search), usa text.
+Si necesitas hacer búsquedas exactas o filtros, usa keyword.
+
+Si tienes dudas o necesitas un ejemplo más específico, dime. ¡Sigue aprendiendo! 🚀
+
+Tú dijiste:
+cuales son las reglas del query SDL ?
+ChatGPT Plus
+El Query DSL (Domain-Specific Language) de Elasticsearch sigue reglas basadas en JSON para estructurar consultas de manera clara y flexible. Aquí te explico las reglas clave que debes seguir:
+
+1️⃣ Toda consulta debe estar dentro de un objeto query
+🔹 Regla: El cuerpo de la consulta debe empezar con "query".
+
+✅ Ejemplo correcto:
+
+json
+Copiar
+Editar
+{
+"query": {
+"match": {
+"titulo": "Elasticsearch"
+}
+}
+}
+❌ Ejemplo incorrecto:
+
+json
+Copiar
+Editar
+{
+"match": {
+"titulo": "Elasticsearch"
+}
+}
+(Falta el objeto query)
+
+2️⃣ Debes usar operadores correctos (match, term, bool, etc.)
+🔹 Regla: Los tipos de consulta deben ser válidos.
+🔹 Ejemplos de operadores comunes:
+
+match → Para búsquedas de texto completo.
+
+term → Para coincidencias exactas en keyword.
+
+bool → Para combinar varias condiciones (must, should, filter).
+
+range → Para buscar en rangos (<, >, <=, >=).
+
+✅ Ejemplo con bool y range:
+
+json
+Copiar
+Editar
+{
+"query": {
+"bool": {
+"must": [
+{ "match": { "descripcion": "rápido" } }
+],
+"filter": [
+{ "range": { "precio": { "gte": 10, "lte": 50 } } }
+]
+}
+}
+}
+(Busca productos con "rápido" en descripcion y precio entre 10 y 50)
+
+3️⃣ Debes usar la estructura JSON correctamente
+🔹 Regla: Los objetos JSON deben estar bien formateados.
+
+✅ Ejemplo correcto:
+
+json
+Copiar
+Editar
+{
+"query": {
+"match": {
+"nombre": "Juan"
+}
+}
+}
+❌ Ejemplo incorrecto: (falta una coma)
+
+json
+Copiar
+Editar
+{
+"query": {
+"match": {
+"nombre": "Juan"
+"apellido": "Perez"
+}
+}
+}
+4️⃣ keyword vs text: Usa el operador adecuado según el tipo de campo
+🔹 Regla:
+
+Usa match para text.
+
+Usa term para keyword.
+
+✅ Ejemplo correcto (text con match):
+
+json
+Copiar
+Editar
+{
+"query": {
+"match": {
+"descripcion": "elasticsearch"
+}
+}
+}
+✅ Ejemplo correcto (keyword con term):
+
+json
+Copiar
+Editar
+{
+"query": {
+"term": {
+"categoria": "tecnología"
+}
+}
+}
+❌ Ejemplo incorrecto: (Usar term en un campo text puede no dar resultados esperados)
+
+json
+Copiar
+Editar
+{
+"query": {
+"term": {
+"descripcion": "elasticsearch"
+}
+}
+}
+5️⃣ Puedes combinar varias condiciones con bool
+🔹 Regla: Para hacer búsquedas más complejas, usa bool con:
+
+must → Debe cumplirse (AND).
+
+should → Opcional, pero mejora el score (OR).
+
+must_not → No debe cumplirse (NOT).
+
+filter → Similar a must, pero sin afectar la relevancia.
+
+✅ Ejemplo con bool:
+
+json
+Copiar
+Editar
+{
+"query": {
+"bool": {
+"must": [
+{ "match": { "titulo": "programación" } }
+],
+"should": [
+{ "match": { "descripcion": "Java" } }
+],
+"must_not": [
+{ "match": { "categoria": "básico" } }
+]
+}
+}
+}
+(Busca documentos con "programación" en el título, opcionalmente con "Java" en la descripción, pero que NO estén en la categoría "básico")
+
+6️⃣ Puedes ordenar resultados con sort
+🔹 Regla: Usa sort para definir el orden de los resultados.
+
+✅ Ejemplo ordenando por fecha (desc para más reciente primero):
+
+json
+Copiar
+Editar
+{
+"query": {
+"match_all": {}
+},
+"sort": [
+{ "fecha": "desc" }
+]
+}
+7️⃣ Puedes limitar el número de resultados con size y from
+🔹 Regla:
+
+size → Número de resultados que quieres devolver.
+
+from → Para paginación (desde qué posición empezar).
+
+✅ Ejemplo: Obtener los primeros 5 resultados a partir del décimo:
+
+json
+Copiar
+Editar
+{
+"query": {
+"match_all": {}
+},
+"size": 5,
+"from": 10
+}
+Resumen de Reglas Clave:
+Toda consulta debe ir dentro de "query".
+
+Usa operadores correctos (match, term, bool, range, etc.).
+
+La estructura JSON debe ser válida.
+
+Usa match para text y term para keyword.
+
+Para consultas avanzadas, usa bool con must, should, must_not y filter.
+
+Usa sort para ordenar resultados.
+
+Usa size y from para limitar y paginar resultados.
+
+Claro, hagamos una simulación de la entrevista. Te daré los ejercicios uno por uno para que los resuelvas en un tiempo razonable, y luego revisamos juntos tus respuestas.
+
+Ejercicio 1: SQL
+Tienes una tabla llamada orders con la siguiente estructura:
+
+sql
+Copiar
+Editar
+CREATE TABLE orders (
+id SERIAL PRIMARY KEY,
+customer_id INT,
+order_date DATE,
+total_amount DECIMAL(10,2)
+);
+Pregunta: Escribe una consulta SQL que devuelva el total de ventas (total_amount) por mes en el año 2024, ordenado de forma ascendente por mes.
+
+Dime cuando tengas la respuesta y pasamos al siguiente.
+
+4o
+Tú dijiste:
+dame una pista por favor
+ChatGPT Plus
+Piensa en cómo agrupar los datos por mes. Puedes usar la función DATE_TRUNC() o EXTRACT() para obtener el mes de la columna order_date. También necesitas filtrar los datos para incluir solo las órdenes del año 2024 y sumar el total_amount de cada mes.
+
+Tú dijiste:
+no se, dame la respuesta
+ChatGPT Plus
+Aquí tienes la consulta SQL correcta:
+
+sql
+Copiar
+Editar
+SELECT
+EXTRACT(MONTH FROM order_date) AS month,
+SUM(total_amount) AS total_sales
+FROM orders
+WHERE EXTRACT(YEAR FROM order_date) = 2024
+GROUP BY month
+ORDER BY month;
+Esta consulta hace lo siguiente:
+
+Filtra las órdenes del año 2024 usando EXTRACT(YEAR FROM order_date) = 2024.
+
+Agrupa los datos por mes usando EXTRACT(MONTH FROM order_date).
+
+Suma el total de ventas por mes con SUM(total_amount).
+
+Ordena los resultados por mes en orden ascendente con ORDER BY month.
+
+Si te queda alguna duda, dime y lo explicamos mejor. Si no, pasamos al siguiente ejercicio.
+
+Tú dijiste:
+siguiente ejercicio
+ChatGPT Plus
+Ejercicio 2: Elasticsearch 2.4
+Tienes un índice en Elasticsearch llamado products con documentos que tienen la siguiente estructura:
+
+json
+Copiar
+Editar
+{
+"name": "Laptop Dell",
+"category": "Electronics",
+"price": 1200,
+"stock": 15
+}
+Pregunta: Escribe una consulta en Elasticsearch 2.4 que devuelva todos los productos de la categoría "Electronics" cuyo precio esté entre 500 y 1500, ordenados de mayor a menor precio.
+
+Dime si necesitas ayuda o una pista.
+
+Tú dijiste:
+en elasticsearch 2.4 se utiliza type, cual seria el type?
+ChatGPT Plus
+En Elasticsearch 2.4, los documentos se almacenan dentro de un índice y un tipo. En versiones antiguas como la 2.4, los tipos (\_type) eran usados para categorizar documentos dentro de un mismo índice.
+
+En este caso, podemos asumir que el type es "product" dentro del índice products. Entonces, la consulta quedaría así:
+
+json
+Copiar
+Editar
+{
+"query": {
+"bool": {
+"must": [
+{ "match": { "category": "Electronics" } },
+{ "range": { "price": { "gte": 500, "lte": 1500 } } }
+]
+}
+},
+"sort": [
+{ "price": { "order": "desc" } }
+]
+}
+Esta consulta:
+
+Filtra los productos cuya category sea "Electronics".
+
+Busca productos dentro del rango de precio de 500 a 1500 (gte = mayor o igual, lte = menor o igual).
+
+Ordena los resultados en orden descendente (desc) por price.
+
+Si necesitas una versión específica con "\_type": "product", dime y la ajustamos. ¿Seguimos con el siguiente ejercicio?
+
+Tú dijiste:
+pero no me digas la respuesta, aun no la he visto, voy a tratar de resolverla por mi cuenta
+ChatGPT Plus
+¡Genial! Intenta resolverlo y dime cuando tengas tu respuesta. Si necesitas una pista, dime y te ayudo sin darte la solución completa.
+
+Tú dijiste:
+{
+“query”:{
+“bool”:[
+“must”:{
+“term”: {
+“category”: “Electronics”
+}
+},
+“range”: {
+“price”: {
+“gt”: 500,
+“lt”: 1500
+}
+}
+]
+}
+“sort”:{
+“precio”: “Desc”
+}
+}
+ChatGPT Plus
+Estás cerca, pero hay algunos errores en la sintaxis. Aquí te dejo algunas correcciones para que las revises:
+
+Los corchetes ([]) están mal ubicados. En bool, los operadores must, should y filter esperan un array ([]) de condiciones. En tu código, must está usando {} en lugar de [].
+
+term no es la mejor opción para cadenas de texto. term funciona mejor para valores exactos y no analiza el texto. Para coincidencias más flexibles, es mejor usar match.
+
+Errores de formato en range. La estructura correcta de range es:
+
+json
+Copiar
+Editar
+"range": {
+"price": {
+"gte": 500,
+"lte": 1500
+}
+}
+Pero en tu código tienes gt y lt en lugar de gte y lte.
+
+Error en sort. La clave del campo a ordenar debe ir entre {} y "desc" debe ir en minúsculas.
+
+Intenta corregirlo con estas pistas y dime si necesitas más ayuda.
+
+Tú dijiste:
+siguiente ejercicio
+ChatGPT Plus
+Ejercicio 3: XPath 1.0
+Tienes el siguiente XML de ejemplo:
+
+xml
+Copiar
+Editar
+<books>
+<book>
+<title>Clean Code</title>
+<author>Robert C. Martin</author>
+<year>2008</year>
+</book>
+<book>
+<title>The Pragmatic Programmer</title>
+<author>Andrew Hunt</author>
+<year>1999</year>
+</book>
+<book>
+<title>Introduction to Algorithms</title>
+<author>Thomas H. Cormen</author>
+<year>2009</year>
+</book>
+</books>
+Pregunta: Escribe una expresión XPath 1.0 que seleccione el título de todos los libros publicados después del año 2000.
+
+Dime si necesitas una pista o si quieres intentarlo por tu cuenta.
+
+Tú dijiste:
+/books/book[number(year) > 2000]/tittle/text()
+ChatGPT Plus
+Casi lo tienes, pero hay dos pequeños errores:
+
+Error en la etiqueta <tittle>: Debería ser <title>.
+
+XPath diferencia mayúsculas y minúsculas, así que el camino correcto es title, no tittle.
+
+La versión corregida sería:
+
+xpath
+Copiar
+Editar
+/books/book[number(year) > 2000]/title/text()
+Esta consulta:
+
+Convierte el year en número con number(year).
+
+Filtra los libros donde year sea mayor a 2000.
+
+Selecciona solo el texto dentro de <title>.
+
+Buen intento, casi perfecto. ¿Listo para el último ejercicio de XPath?
+
+Tú dijiste:
+si
+ChatGPT Plus
+Ejercicio 4: XPath 1.0
+Tienes el siguiente XML:
+
+xml
+Copiar
+Editar
+<employees>
+<employee>
+<name>Alice</name>
+<position>Manager</position>
+<salary>75000</salary>
+</employee>
+<employee>
+<name>Bob</name>
+<position>Developer</position>
+<salary>60000</salary>
+</employee>
+<employee>
+<name>Charlie</name>
+<position>Developer</position>
+<salary>65000</salary>
+</employee>
+</employees>
+Pregunta: Escribe una expresión XPath 1.0 que seleccione los nombres de los empleados cuya posición sea "Developer" y su salario sea mayor a 60000.
+
+Intenta resolverlo y dime si necesitas una pista.
+
+Tú dijiste:
+/employees/employee[position = "Developer" and number(salary) > 60000]/name/text()
+ChatGPT Plus
+¡Muy bien! Casi perfecto. Solo hay un pequeño detalle:
+
+En XPath 1.0, la comparación de texto en position = "Developer" funciona, pero es más seguro usar text() para evitar problemas si hay espacios en blanco.
+
+La versión más robusta sería:
+
+xpath
+Copiar
+Editar
+/employees/employee[position/text() = "Developer" and number(salary) > 60000]/name/text()
+Así te aseguras de que estás comparando el contenido exacto dentro de <position>.
+
+Hiciste un gran trabajo en esta simulación. ¿Cómo te sentiste con los ejercicios? ¿Quieres repasar algo más antes de tu entrevista?
+
+Ejercicio 1: Seleccionar todos los libros
+Archivo XML:
+xml
+Copiar
+Editar
+<libreria>
+<libro>
+<titulo>El principito</titulo>
+<autor>Antoine de Saint-Exupéry</autor>
+<precio>10</precio>
+</libro>
+<libro>
+<titulo>1984</titulo>
+<autor>George Orwell</autor>
+<precio>15</precio>
+</libro>
+</libreria>
+Consulta XPath:
+xpath
+Copiar
+Editar
+/libreria/libro
+Explicación:
+Esta consulta selecciona todos los elementos <libro> dentro de <libreria>.
+
+Ejercicio 2: Obtener los títulos de los libros
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro/titulo/text()
+Devuelve los textos dentro de los elementos <titulo>.
+
+Ejercicio 3: Seleccionar el autor de "1984"
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[titulo='1984']/autor/text()
+Filtra el <libro> con título "1984" y obtiene su autor.
+
+Ejercicio 4: Seleccionar libros con precio mayor a 10
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[precio>10]
+Selecciona los <libro> cuyo <precio> sea mayor a 10.
+
+Ejercicio 5: Obtener los nombres de autores
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro/autor/text()
+Devuelve solo los textos de los autores.
+
+Ejercicio 6: Contar el número de libros
+XPath:
+xpath
+Copiar
+Editar
+count(/libreria/libro)
+Cuenta los elementos <libro>.
+
+Ejercicio 7: Seleccionar el primer libro
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[1]
+Selecciona el primer <libro>.
+
+Ejercicio 8: Seleccionar el último libro
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[last()]
+Selecciona el último <libro>.
+
+Ejercicio 9: Obtener el precio del segundo libro
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[2]/precio/text()
+Obtiene el precio del segundo libro.
+
+Ejercicio 10: Seleccionar libros con títulos que contengan "el"
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[contains(titulo, 'el')]
+Filtra los <libro> cuyo <titulo> contenga "el".
+
+Ejercicio 11: Seleccionar libros cuyo título empiece con "E"
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[starts-with(titulo, 'E')]
+Filtra los libros cuyo <titulo> empieza con "E".
+
+Ejercicio 12: Seleccionar libros ordenados por precio ascendente
+XPath 1.0 no permite ordenar directamente, esto se hace en XSLT o en la aplicación.
+
+Ejercicio 13: Obtener el precio total de los libros
+XPath:
+xpath
+Copiar
+Editar
+sum(/libreria/libro/precio)
+Suma todos los valores en <precio>.
+
+Ejercicio 14: Seleccionar libros con autores cuyo nombre contenga "George"
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[contains(autor, 'George')]
+Filtra libros cuyos <autor> contienen "George".
+
+Ejercicio 15: Seleccionar todos los elementos dentro de la librería
+XPath:
+xpath
+Copiar
+Editar
+/libreria/\*
+Selecciona todos los elementos hijos directos de <libreria>.
+
+Ejercicio 16: Seleccionar el nodo padre de cualquier título
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro/titulo/parent::\*
+Devuelve el nodo <libro> que contiene el <titulo>.
+
+Ejercicio 17: Seleccionar libros con títulos de más de 10 caracteres
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[string-length(titulo) > 10]
+Filtra los libros con títulos largos.
+
+Ejercicio 18: Seleccionar libros sin autor
+Archivo XML:
+xml
+Copiar
+Editar
+<libreria>
+<libro>
+<titulo>El Quijote</titulo>
+<precio>20</precio>
+</libro>
+</libreria>
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[not(autor)]
+Filtra los libros sin <autor>.
+
+Ejercicio 19: Seleccionar libros cuyo precio sea 10 o 15
+XPath:
+xpath
+Copiar
+Editar
+/libreria/libro[precio=10 or precio=15]
+Filtra libros con precio 10 o 15.
+
+Ejercicio 20: Seleccionar todos los elementos del documento
+XPath:
+xpath
+Copiar
+Editar
+//\*
+Selecciona todos los nodos del documento.
+
+Estos ejercicios te darán una base sólida para la entrevista. ¿Quieres más ejercicios o prefieres practicar con otros formatos?
+
+Tú dijiste:
+Por favor dame un resumen de ejercicios y respuestas para preparme para una entrevista tecnica sobre elasticsearch version 2.4, dame al menos 20 problemas con su enunciado, su solucion y breve explicacion.
+ChatGPT Plus
+Aquí tienes 20 ejercicios para practicar consultas en Elasticsearch 2.4, con su enunciado, la consulta correspondiente y una breve explicación.
+
+Ejercicio 1: Insertar documentos en un índice
+Índice y documentos:
+json
+Copiar
+Editar
+PUT /biblioteca/libro/1
+{
+"titulo": "1984",
+"autor": "George Orwell",
+"precio": 15
+}
+
+PUT /biblioteca/libro/2
+{
+"titulo": "El Principito",
+"autor": "Antoine de Saint-Exupéry",
+"precio": 10
+}
+Explicación:
+Estos comandos insertan dos documentos en el índice biblioteca.
+
+Ejercicio 2: Obtener un documento por ID
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/1
+Explicación:
+Obtiene el documento con ID 1 del índice biblioteca.
+
+Ejercicio 3: Buscar todos los documentos de un índice
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"match_all": {}
+}
+}
+Explicación:
+Devuelve todos los documentos en biblioteca/libro.
+
+Ejercicio 4: Buscar libros con título "1984"
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"match": {
+"titulo": "1984"
+}
+}
+}
+Explicación:
+Busca libros cuyo titulo contenga "1984".
+
+Ejercicio 5: Buscar libros con precio mayor a 10
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"range": {
+"precio": {
+"gt": 10
+}
+}
+}
+}
+Explicación:
+Busca libros donde precio sea mayor a 10.
+
+Ejercicio 6: Buscar libros con precio entre 10 y 20
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"range": {
+"precio": {
+"gte": 10,
+"lte": 20
+}
+}
+}
+}
+Explicación:
+Filtra libros cuyo precio está entre 10 y 20.
+
+Ejercicio 7: Buscar libros cuyo autor sea "George Orwell"
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"term": {
+"autor": "George Orwell"
+}
+}
+}
+Explicación:
+Usa term para encontrar coincidencias exactas.
+
+Ejercicio 8: Contar libros en el índice
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_count
+Explicación:
+Cuenta el número total de documentos en biblioteca/libro.
+
+Ejercicio 9: Obtener solo los títulos de los libros
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"\_source": ["titulo"],
+"query": {
+"match_all": {}
+}
+}
+Explicación:
+Devuelve solo los campos titulo de los libros.
+
+Ejercicio 10: Buscar libros cuyo título contenga "El"
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"match": {
+"titulo": "El"
+}
+}
+}
+Explicación:
+Busca libros cuyo titulo contiene "El".
+
+Ejercicio 11: Buscar libros ordenados por precio (ascendente)
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"match_all": {}
+},
+"sort": [
+{ "precio": "asc" }
+]
+}
+Explicación:
+Ordena los resultados por precio en orden ascendente.
+
+Ejercicio 12: Buscar libros ordenados por precio (descendente)
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"match_all": {}
+},
+"sort": [
+{ "precio": "desc" }
+]
+}
+Explicación:
+Ordena los libros por precio de mayor a menor.
+
+Ejercicio 13: Buscar libros con precio exacto de 15
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"term": {
+"precio": 15
+}
+}
+}
+Explicación:
+Busca libros cuyo precio sea exactamente 15.
+
+Ejercicio 14: Buscar libros con precios distintos a 10
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"bool": {
+"must_not": {
+"term": {
+"precio": 10
+}
+}
+}
+}
+}
+Explicación:
+Filtra los libros que no tienen precio igual a 10.
+
+Ejercicio 15: Buscar libros con precios de 10 o 15
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"bool": {
+"should": [
+{ "term": { "precio": 10 } },
+{ "term": { "precio": 15 } }
+]
+}
+}
+}
+Explicación:
+Filtra libros con precio 10 o 15.
+
+Ejercicio 16: Obtener la cantidad de libros agrupados por precio
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"size": 0,
+"aggs": {
+"precios_unicos": {
+"terms": { "field": "precio" }
+}
+}
+}
+Explicación:
+Agrupa y cuenta libros según su precio.
+
+Ejercicio 17: Buscar libros con título que empiece con "E"
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"prefix": {
+"titulo": "E"
+}
+}
+}
+Explicación:
+Filtra libros cuyo titulo comienza con "E".
+
+Ejercicio 18: Buscar libros donde el título contenga "princi"
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"wildcard": {
+"titulo": "_princi_"
+}
+}
+}
+Explicación:
+Busca coincidencias parciales en titulo.
+
+Ejercicio 19: Eliminar un libro por ID
+Consulta:
+json
+Copiar
+Editar
+DELETE /biblioteca/libro/1
+Explicación:
+Elimina el documento con ID 1.
+
+Ejercicio 20: Eliminar todos los documentos del índice
+Consulta:
+json
+Copiar
+Editar
+POST /biblioteca/\_delete_by_query
+{
+"query": {
+"match_all": {}
+}
+}
+Explicación:
+Borra todos los documentos de biblioteca.
+
+Estos ejercicios cubren consultas básicas y avanzadas. ¿Necesitas más ejemplos o ejercicios en otro formato?
+
+Tú dijiste:
+ahora problemas un poco mas dificiles
+ChatGPT Plus
+Aquí tienes 10 problemas más avanzados de Elasticsearch 2.4 con su enunciado, solución y explicación.
+
+Ejercicio 21: Buscar libros cuyo título contenga "1984" y cuyo precio sea mayor a 12
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"bool": {
+"must": [
+{ "match": { "titulo": "1984" } },
+{ "range": { "precio": { "gt": 12 } } }
+]
+}
+}
+}
+Explicación:
+Usamos bool con must para exigir que el título contenga "1984" y el precio sea mayor a 12.
+
+Ejercicio 22: Buscar libros cuyo título NO contenga "El" y su precio esté entre 10 y 20
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"bool": {
+"must_not": { "match": { "titulo": "El" } },
+"filter": { "range": { "precio": { "gte": 10, "lte": 20 } } }
+}
+}
+}
+Explicación:
+Filtramos por precio entre 10 y 20, pero excluimos los que contienen "El" en su título.
+
+Ejercicio 23: Encontrar el libro más caro de la biblioteca
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"size": 1,
+"sort": [ { "precio": "desc" } ]
+}
+Explicación:
+Ordenamos los libros por precio en orden descendente y limitamos el resultado a 1.
+
+Ejercicio 24: Obtener el promedio de precios de los libros
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"size": 0,
+"aggs": {
+"promedio_precio": { "avg": { "field": "precio" } }
+}
+}
+Explicación:
+La agregación avg calcula el promedio de los precios.
+
+Ejercicio 25: Contar cuántos libros hay por cada autor
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"size": 0,
+"aggs": {
+"libros_por_autor": { "terms": { "field": "autor" } }
+}
+}
+Explicación:
+Agrupa los libros por autor y cuenta cuántos hay de cada uno.
+
+Ejercicio 26: Buscar libros con título que contenga "El" pero que no sean del autor "Antoine de Saint-Exupéry"
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"bool": {
+"must": { "match": { "titulo": "El" } },
+"must_not": { "term": { "autor": "Antoine de Saint-Exupéry" } }
+}
+}
+}
+Explicación:
+Filtramos los libros que contienen "El" en el título pero excluimos los escritos por "Antoine de Saint-Exupéry".
+
+Ejercicio 27: Buscar libros que tengan un precio diferente a 10 y 15
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"bool": {
+"must_not": [
+{ "term": { "precio": 10 } },
+{ "term": { "precio": 15 } }
+]
+}
+}
+}
+Explicación:
+Excluimos los libros que tienen un precio de 10 o 15.
+
+Ejercicio 28: Encontrar los dos libros más baratos
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"size": 2,
+"sort": [ { "precio": "asc" } ]
+}
+Explicación:
+Ordenamos por precio ascendente y limitamos el resultado a los dos primeros.
+
+Ejercicio 29: Encontrar libros que contengan "El" en el título, pero priorizando los más baratos
+Consulta:
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": { "match": { "titulo": "El" } },
+"sort": [ { "precio": "asc" } ]
+}
+Explicación:
+Primero filtramos libros con "El" en el título y luego ordenamos por precio en orden ascendente.
+
+Ejercicio 30: Buscar libros cuyo autor sea "George Orwell" y cuyo precio sea mayor al promedio de todos los libros
+Paso 1: Obtener el promedio de precios
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"size": 0,
+"aggs": {
+"promedio_precio": { "avg": { "field": "precio" } }
+}
+}
+Paso 2: Buscar libros de George Orwell con precio superior al promedio
+json
+Copiar
+Editar
+GET /biblioteca/libro/\_search
+{
+"query": {
+"bool": {
+"must": [
+{ "term": { "autor": "George Orwell" } },
+{ "range": { "precio": { "gt": 12.5 } } }
+]
+}
+}
+}
+Explicación:
+En el primer paso calculamos el promedio de precios (por ejemplo, 12.5). En el segundo paso buscamos libros de "George Orwell" con un precio superior a ese promedio.
+
+Estos problemas te ayudarán a practicar consultas avanzadas con filtros, agregaciones y ordenamientos en Elasticsearch 2.4. ¿Quieres más ejercicios o explicaciones sobre algún tema en particular?
+
+Tú dijiste:
+igual con xpath 1.0 quiero problemas mas dificiles
+ChatGPT Plus
+Aquí tienes 10 problemas más avanzados de XPath 1.0 con su enunciado, archivo XML de ejemplo, solución y explicación.
+
+Ejemplo de archivo XML
+Todos los problemas se basan en el siguiente XML de ejemplo sobre una biblioteca:
+
+xml
+Copiar
+Editar
+<biblioteca>
+<libro>
+<titulo>1984</titulo>
+<autor>George Orwell</autor>
+<precio moneda="USD">15</precio>
+<genero>Ficción</genero>
+</libro>
+<libro>
+<titulo>El Principito</titulo>
+<autor>Antoine de Saint-Exupéry</autor>
+<precio moneda="EUR">10</precio>
+<genero>Infantil</genero>
+</libro>
+<libro>
+<titulo>Cien años de soledad</titulo>
+<autor>Gabriel García Márquez</autor>
+<precio moneda="USD">20</precio>
+<genero>Realismo mágico</genero>
+</libro>
+<libro>
+<titulo>El Hobbit</titulo>
+<autor>J.R.R. Tolkien</autor>
+<precio moneda="USD">25</precio>
+<genero>Fantasía</genero>
+</libro>
+</biblioteca>
+Ejercicio 21: Seleccionar libros cuyo precio sea mayor a 15
+XPath:
+xpath
+Copiar
+Editar
+//libro[precio > 15]
+Explicación:
+Selecciona los libros donde el valor del precio sea mayor a 15.
+
+Ejercicio 22: Obtener el título de los libros cuyo género sea "Fantasía" o "Realismo mágico"
+XPath:
+xpath
+Copiar
+Editar
+//libro[genero = 'Fantasía' or genero = 'Realismo mágico']/titulo
+Explicación:
+Filtra los libros cuyo genero sea "Fantasía" o "Realismo mágico" y obtiene su titulo.
+
+Ejercicio 23: Contar cuántos libros hay en la biblioteca
+XPath:
+xpath
+Copiar
+Editar
+count(//libro)
+Explicación:
+Usa count() para contar el número total de nodos libro.
+
+Ejercicio 24: Seleccionar libros con precio en dólares (USD)
+XPath:
+xpath
+Copiar
+Editar
+//libro[precio[@moneda='USD']]
+Explicación:
+Filtra los libros cuyo nodo precio tenga un atributo moneda con el valor "USD".
+
+Ejercicio 25: Obtener el título del libro más caro
+XPath:
+xpath
+Copiar
+Editar
+//libro[not(precio > ../libro/precio)]/titulo
+Explicación:
+Selecciona el libro cuyo precio no es menor que ningún otro (es decir, el más caro).
+
+Ejercicio 26: Obtener los autores cuyos libros cuestan menos de 20
+XPath:
+xpath
+Copiar
+Editar
+//libro[precio < 20]/autor
+Explicación:
+Filtra los libros con precio menor a 20 y devuelve los autor.
+
+Ejercicio 27: Obtener los títulos de libros que NO sean de "Ficción"
+XPath:
+xpath
+Copiar
+Editar
+//libro[genero != 'Ficción']/titulo
+Explicación:
+Selecciona los títulos de libros donde el genero no sea "Ficción".
+
+Ejercicio 28: Obtener los títulos de libros ordenados por precio de menor a mayor
+XPath: (No soportado en XPath 1.0 sin XSLT, pero en algunos motores puede funcionar)
+xpath
+Copiar
+Editar
+//libro[not(precio > following-sibling::libro/precio)]/titulo
+Explicación:
+Busca el libro con el precio más bajo entre sus hermanos. Para ordenar completamente se requiere XSLT.
+
+Ejercicio 29: Seleccionar el segundo libro de la biblioteca
+XPath:
+xpath
+Copiar
+Editar
+//libro[2]
+Explicación:
+Usa [] para seleccionar el segundo nodo libro.
+
+Ejercicio 30: Obtener el título del libro con el precio más bajo en dólares (USD)
+XPath:
+xpath
+Copiar
+Editar
+//libro[precio[@moneda='USD'] and not(precio > ../libro/precio)]/titulo
+Explicación:
+Filtra libros con moneda='USD' y selecciona aquel cuyo precio sea el más bajo.
+
+Ejercicio 1: SELECT Básico
+Tienes la siguiente tabla llamada employees:
+
+id name department salary
+1 Ana IT 5000
+2 Luis HR 4500
+3 Marta IT 5200
+4 Juan Sales 4000
+5 Carla HR 4800
+Escribe una consulta SQL para obtener los nombres y salarios de todos los empleados que trabajan en el departamento de "IT".
+
+Prueba resolverlo y dime tu respuesta.
+
+Tú dijiste:
+SELECT name, salary
+FROM employees
+WHERE department = "IT”
+ChatGPT Plus
+Tu consulta está casi perfecta, pero tiene un pequeño error de sintaxis en la comparación de la columna department.
+
+En SQL estándar, los valores de texto deben ir entre comillas simples (') en lugar de comillas dobles (") (aunque algunos motores de bases de datos permiten ambas).
+
+La versión corregida es:
+
+sql
+Copiar
+Editar
+SELECT name, salary
+FROM employees
+WHERE department = 'IT';
+¡Buen trabajo! Ahora subamos un poco la dificultad.
+
+Ejercicio 2: ORDER BY
+Usando la misma tabla employees, escribe una consulta para obtener los nombres y salarios de todos los empleados, ordenados por salario en orden descendente (de mayor a menor).
+
+Dime tu respuesta.
+
+Tú dijiste:
+SELECT name, salary
+FROM employees
+ORDER BY salary DESC
+ChatGPT Plus
+¡Perfecto! 🎯 Tu consulta está 100% correcta.
+
+Ahora vamos a subir un poco más la dificultad.
+
+Ejercicio 3: INNER JOIN
+Supongamos que ahora tenemos dos tablas:
+
+Tabla employees
+id name department_id salary
+1 Ana 1 5000
+2 Luis 2 4500
+3 Marta 1 5200
+4 Juan 3 4000
+5 Carla 2 4800
+Tabla departments
+id department_name
+1 IT
+2 HR
+3 Sales
+Pregunta:
+Escribe una consulta para obtener el nombre del empleado, su salario y el nombre del departamento al que pertenece.
+
+Espero tu respuesta. 🚀
+
+Tú dijiste:
+SELECT employees.name, employees.salary, departments.department_name
+FROM employees
+INNER JOIN departments
+ON employees.id = departments.id
+ChatGPT Plus
+Estás muy cerca, pero cometiste un pequeño error en la condición del JOIN.
+
+En la tabla employees, la columna department_id es la que indica a qué departamento pertenece cada empleado. Sin embargo, en tu consulta estás uniendo employees.id con departments.id, cuando en realidad deberías unir employees.department_id con departments.id.
+
+Aquí está la versión corregida:
+
+sql
+Copiar
+Editar
+SELECT employees.name, employees.salary, departments.department_name
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.id;
+Este cambio asegura que estamos relacionando correctamente cada empleado con su departamento.
+
+¡Buen intento! ¿Listo para otro desafío? 🚀
+
+Tú dijiste:
+siguiente pregunta por favor
+ChatGPT Plus
+¡Vamos a seguir subiendo un poco la dificultad!
+
+Ejercicio 4: GROUP BY y HAVING
+Supongamos que tenemos la siguiente tabla employees (la misma que antes):
+
+id name department_id salary
+1 Ana 1 5000
+2 Luis 2 4500
+3 Marta 1 5200
+4 Juan 3 4000
+5 Carla 2 4800
+Escribe una consulta SQL que devuelva el salario promedio de cada departamento, pero solo para los departamentos cuyo salario promedio sea superior a 4600.
+
+Usa GROUP BY para agrupar por departamento y HAVING para filtrar el resultado.
+
+¡A ver qué tal lo resuelves!
+
+Tú dijiste:
+SELECT AVG(salary) AS avg_dep
+FROM employees
+GROUP BY department_id
+HAVING avg_dep > 4600
+ChatGPT Plus
+Vas por buen camino, pero te falta un pequeño detalle: no estás incluyendo la columna department_id en la selección, lo que haría que la consulta no muestre a qué departamento pertenece cada salario promedio.
+
+Aquí está la versión corregida:
+
+sql
+Copiar
+Editar
+SELECT department_id, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department_id
+HAVING AVG(salary) > 4600;
+Correcciones clave:
+Se incluyó department_id en el SELECT para identificar el departamento al que pertenece cada salario promedio.
+
+En HAVING, usamos AVG(salary) directamente en lugar de referenciar el alias avg_salary, ya que algunos motores de bases de datos no permiten usar alias en HAVING.
+
+¡Gran esfuerzo! Ahora, ¿te animas a un ejercicio con subconsultas? 🚀
+
+Tú dijiste:
+uno que utilice inner join y count por favor
+ChatGPT Plus
+¡Buena elección! Vamos con uno más desafiante.
+
+Ejercicio 5: INNER JOIN y COUNT
+Usamos las mismas tablas employees y departments:
+
+Tabla employees
+id name department_id salary
+1 Ana 1 5000
+2 Luis 2 4500
+3 Marta 1 5200
+4 Juan 3 4000
+5 Carla 2 4800
+6 Pedro 1 5100
+Tabla departments
+id department_name
+1 IT
+2 HR
+3 Sales
+Pregunta:
+Escribe una consulta que muestre el nombre de cada departamento junto con la cantidad de empleados que tiene.
+
+Espero tu respuesta. 🚀
+
+Tú dijiste:
+SELECT departments.department_name, COUNT(name)
+FROM employees
+INNER JOIN department_name
+ON employees.department_id = departments.department_name
+ChatGPT Plus
+Casi lo tienes, pero cometiste un par de errores:
+
+Error en el JOIN → En ON employees.department_id = departments.department_name, estás comparando department_id con department_name, cuando en realidad department_id debe compararse con departments.id.
+
+Error en la selección de la tabla → En INNER JOIN department_name, el nombre correcto de la tabla es departments, no department_name.
+
+Falta de alias en COUNT(name) → No es un error grave, pero es recomendable darle un alias para mayor claridad.
+
+Falta GROUP BY → Como estamos contando empleados por departamento, debemos agrupar por departments.department_name.
+
+Aquí está la versión corregida:
+
+sql
+Copiar
+Editar
+SELECT departments.department_name, COUNT(employees.id) AS employee_count
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.id
+GROUP BY departments.department_name;
+Correcciones clave:
+Se usa employees.department_id = departments.id en el JOIN.
+
+Se agrupa por departments.department_name.
+
+Se usa COUNT(employees.id) en lugar de COUNT(name) porque contar id es más seguro (asegura que cuenta filas únicas).
+
+¡Buen intento! ¿Listo para un reto más difícil? 🚀
+
+Tú dijiste:
+uno similar al anterior para reforzar el aprendizaje
+ChatGPT Plus
+¡Buena idea! Vamos con un ejercicio similar para reforzar lo aprendido.
+
+Ejercicio 6: INNER JOIN y COUNT con filtro
+Sigamos con las tablas employees y departments:
+
+Tabla employees
+id name department_id salary
+1 Ana 1 5000
+2 Luis 2 4500
+3 Marta 1 5200
+4 Juan 3 4000
+5 Carla 2 4800
+6 Pedro 1 5100
+7 Sofia 3 3900
+8 Mario 2 4700
+Tabla departments
+id department_name
+1 IT
+2 HR
+3 Sales
+Pregunta:
+Escribe una consulta que muestre el nombre de cada departamento y la cantidad de empleados que tiene, pero solo para los departamentos con más de 2 empleados.
+
+¡A ver cómo lo resuelves! 🚀
+
+Tú dijiste:
+SELECT departments.department_name, COUNT(employees.id) AS emp_num
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.id
+GRUOP BY departments.department_name
+HAVING emp_num > 2
+ChatGPT Plus
+¡Casi perfecto! 🔥 Solo cometiste un pequeño error tipográfico en GROUP BY, lo escribiste como GRUOP BY.
+
+Aquí está la versión corregida:
+
+sql
+Copiar
+Editar
+SELECT departments.department_name, COUNT(employees.id) AS emp_num
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.id
+GROUP BY departments.department_name
+HAVING COUNT(employees.id) > 2;
+Correcciones clave:
+Corrige la palabra GROUP BY → Estaba mal escrita como GRUOP BY.
+
+En HAVING, usa COUNT(employees.id) directamente → Algunos motores de bases de datos no permiten referenciar el alias emp_num en HAVING, así que es más seguro escribir HAVING COUNT(employees.id) > 2.
+
+¡Muy buen trabajo! 💪 ¿Quieres seguir con más ejercicios similares o te gustaría otro tipo de consulta? 🚀
+
+Tú dijiste:
+otro por favor
+ChatGPT Plus
+¡Sigamos subiendo el nivel!
+
+Ejercicio 7: INNER JOIN, COUNT y ORDER BY
+Usamos las mismas tablas employees y departments.
+
+Pregunta:
+Escribe una consulta que muestre el nombre de cada departamento y la cantidad de empleados que tiene, pero ahora ordena los resultados de mayor a menor cantidad de empleados.
+
+Espero tu respuesta. 🚀
+
+Tú dijiste:
+SELECT departments.department_name, COUNT(employees.id) AS emp_num
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.id
+GROUP BY departments.department_name
+ORDER BY COUNT(employees.id) DESC
+ChatGPT Plus
+¡Perfecto! 🎯 Tu consulta está completamente correcta.
+
+Puntos clave que hiciste bien:
+✅ Usaste INNER JOIN correctamente para unir employees con departments.
+✅ Agrupaste por departments.department_name para contar empleados por departamento.
+✅ Ordenaste correctamente con ORDER BY COUNT(employees.id) DESC para mostrar primero los departamentos con más empleados.
+
+Pequeño detalle de formato
+Aunque tu consulta es 100% funcional, te recomendaría corregir un pequeño detalle de formato en ORDER BY, ya que tienes un espacio extra entre ORDER y BY. No afecta el resultado, pero por buenas prácticas deberías escribirlo así:
+
+sql
+Copiar
+Editar
+SELECT departments.department_name, COUNT(employees.id) AS emp_num
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.id
+GROUP BY departments.department_name
+ORDER BY COUNT(employees.id) DESC;
+¡Muy buen trabajo! 🚀 ¿Te animas a uno con LEFT JOIN y COUNT? 😏
+
+Tú dijiste:
+si por favor
+ChatGPT Plus
+¡Vamos con un ejercicio usando LEFT JOIN y COUNT!
+
+Ejercicio 8: LEFT JOIN y COUNT
+Ahora supongamos que tenemos algunos departamentos que aún no tienen empleados. Queremos asegurarnos de que en nuestra consulta también aparezcan esos departamentos, con un conteo de empleados igual a 0.
+
+Pregunta:
+Escribe una consulta que muestre el nombre de cada departamento y la cantidad de empleados que tiene, incluyendo los departamentos sin empleados (donde el conteo debe ser 0).
+
+Espero tu respuesta. 🚀
+
+Tú dijiste:
+si no hay empleados en esos departamentos, el resultado de count sera null, como puedo poner un 0 ahi?
+ChatGPT Plus
+¡Muy buena observación! 🎯 Cuando un COUNT() no encuentra filas en la tabla employees, devuelve NULL, pero podemos convertirlo en 0 usando la función COALESCE().
+
+Aquí está la consulta corregida:
+
+sql
+Copiar
+Editar
+SELECT departments.department_name, COALESCE(COUNT(employees.id), 0) AS emp_num
+FROM departments
+LEFT JOIN employees
+ON employees.department_id = departments.id
+GROUP BY departments.department_name
+ORDER BY emp_num DESC;
+Explicación clave:
+✅ Usamos LEFT JOIN para asegurarnos de que todos los departamentos aparezcan, incluso los que no tienen empleados.
+✅ COUNT(employees.id) dentro de COALESCE() → Si COUNT() devuelve NULL (cuando no hay empleados en un departamento), COALESCE() lo reemplaza con 0.
+✅ Ordenamos por emp_num DESC para mostrar los departamentos con más empleados primero.
+
+¡Buen razonamiento al notar el problema con NULL! 💡 ¿Quieres otro reto? 🚀
+
+Tú dijiste:
+en el ORDER BY, si se puede usar el alias? cuando se puede usar el alias y cuando no?
+ChatGPT Plus
+¡Excelente pregunta! El uso de alias en ORDER BY es algo que puede variar según el motor de bases de datos que estés utilizando. En la mayoría de los casos, sí se puede usar un alias en ORDER BY, pero existen algunas reglas y particularidades que conviene conocer.
+
+¿Cuándo se puede usar el alias en ORDER BY?
+En la mayoría de los motores de bases de datos modernos (como MySQL, PostgreSQL, SQL Server), sí se puede usar un alias definido en el SELECT para ordenar los resultados. Esto es completamente válido y funciona sin problemas.
+
+Por ejemplo, en tu consulta anterior:
+
+sql
+Copiar
+Editar
+SELECT departments.department_name, COALESCE(COUNT(employees.id), 0) AS emp_num
+FROM departments
+LEFT JOIN employees
+ON employees.department_id = departments.id
+GROUP BY departments.department_name
+ORDER BY emp_num DESC;
+El alias emp_num se puede usar en el ORDER BY sin problemas, y la consulta funcionará correctamente.
+
+¿Cuándo no se puede usar el alias en ORDER BY?
+En algunos motores de bases de datos (por ejemplo, SQLite), no puedes usar un alias en el ORDER BY si el alias se ha definido en una parte del SELECT que sigue después de la cláusula ORDER BY.
+
+¿Qué hacer si no se puede usar el alias?
+Si por alguna razón no puedes usar el alias (por ejemplo, si el motor de base de datos no lo permite), puedes repetir la expresión completa en el ORDER BY:
+
+sql
+Copiar
+Editar
+ORDER BY COALESCE(COUNT(employees.id), 0) DESC;
+Resumen:
+Puedes usar un alias en ORDER BY en motores como MySQL, PostgreSQL, y SQL Server.
+
+Si no se puede usar el alias, repite la expresión completa en ORDER BY.
+
+¿Te gustaría probar un ejemplo con un motor de base de datos específico, o necesitas más detalles sobre esto? 😊
+
+Tú dijiste:
+Escenario: Tienes una base de datos de comercio electrónico con tres tablas:
+Productos (ProductoID, Nombre, Categoria, Precio)
+Clientes (ClienteID, Nombre, Ciudad)
+Ordenes (OrdenID, ClienteID, ProductoID, FechaOrden, Cantidad)
+Pregunta: Escribe una consulta SQL que devuelva el nombre de cada cliente, la categoría de producto más comprada por ese cliente y el número total de productos de esa categoría comprados por el cliente. Ordene los resultados por el número total de productos en orden descendente.
+ChatGPT Plus
+¡Buen reto! Aquí tienes la consulta SQL para obtener el nombre de cada cliente, su categoría de producto más comprada y el total de productos comprados en esa categoría.
+
+sql
+Copiar
+Editar
+WITH CategoriaMasComprada AS (
+SELECT
+c.Nombre AS Cliente,
+p.Categoria,
+COUNT(_) AS TotalComprado,
+RANK() OVER (PARTITION BY c.ClienteID ORDER BY COUNT(_) DESC) AS Rango
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+INNER JOIN Clientes c ON o.ClienteID = c.ClienteID
+GROUP BY c.Nombre, p.Categoria
+)
+SELECT Cliente, Categoria, TotalComprado
+FROM CategoriaMasComprada
+WHERE Rango = 1
+ORDER BY TotalComprado DESC;
+Explicación de la consulta:
+WITH CategoriaMasComprada AS (...)
+
+Se crea una consulta común (CTE) para calcular la cantidad de productos comprados por cada cliente en cada categoría.
+
+Se usa COUNT(\*) para contar cuántos productos de cada categoría ha comprado cada cliente.
+
+RANK() OVER (PARTITION BY c.ClienteID ORDER BY COUNT(\*) DESC) asigna un ranking a cada categoría comprada por un cliente, de manera que la más comprada tiene el Rango = 1.
+
+SELECT Cliente, Categoria, TotalComprado
+
+Se filtra el CTE para quedarnos solo con la categoría más comprada (WHERE Rango = 1).
+
+ORDER BY TotalComprado DESC
+
+Finalmente, ordenamos los resultados de mayor a menor según la cantidad de productos comprados en esa categoría.
+
+¿Qué pasa si un cliente compró varias categorías con la misma cantidad?
+Si un cliente tiene varias categorías con el mismo número máximo de productos, RANK() asignará el mismo ranking a ambas, por lo que la consulta podría devolver más de una fila por cliente.
+
+Si quieres asegurarte de que solo se devuelva una categoría por cliente en caso de empate, puedes usar ROW_NUMBER() en lugar de RANK().
+
+Ejemplo de salida:
+Cliente Categoría TotalComprado
+Juan Electrónica 15
+María Ropa 12
+Pedro Hogar 10
+¡Dime si quieres modificar algo o subir el nivel del reto! 🚀
+
+Tú dijiste:
+Por favor dame un resumen de ejercicios y respuestas para preparme para una entrevista tecnica sobre QSL, dame al menos 20 problemas con su enunciado, tablas, su solucion y breve explicacion.
+ChatGPT Plus
+Aquí tienes 20 ejercicios de SQL para prepararte para una entrevista técnica. Cubren desde consultas básicas hasta consultas avanzadas con JOIN, GROUP BY, HAVING, ORDER BY, CTE, WINDOW FUNCTIONS, etc.
+
+Tablas de ejemplo
+Las siguientes tablas serán usadas en los ejercicios:
+
+Tabla Productos
+ProductoID Nombre Categoria Precio
+1 Laptop Electrónica 800
+2 Smartphone Electrónica 500
+3 Camiseta Ropa 20
+4 Pantalón Ropa 30
+5 Sofá Muebles 300
+Tabla Clientes
+ClienteID Nombre Ciudad
+1 Juan Madrid
+2 María Barcelona
+3 Pedro Sevilla
+Tabla Ordenes
+OrdenID ClienteID ProductoID FechaOrden Cantidad
+1 1 1 2024-03-01 1
+2 1 2 2024-03-02 2
+3 2 3 2024-03-03 3
+4 3 4 2024-03-04 1
+5 3 5 2024-03-05 2
+Ejercicios y soluciones
+
+1. Obtener todos los clientes
+   Consulta:
+
+sql
+Copiar
+Editar
+SELECT \* FROM Clientes;
+Explicación:
+Devuelve todos los registros de la tabla Clientes.
+
+2. Obtener los productos de la categoría "Electrónica"
+   Consulta:
+
+sql
+Copiar
+Editar
+SELECT \* FROM Productos WHERE Categoria = 'Electrónica';
+Explicación:
+Filtra los productos que pertenecen a la categoría "Electrónica".
+
+3. Obtener las órdenes realizadas después del 1 de marzo de 2024
+   Consulta:
+
+sql
+Copiar
+Editar
+SELECT \* FROM Ordenes WHERE FechaOrden > '2024-03-01';
+Explicación:
+Muestra las órdenes cuyo FechaOrden es posterior al 1 de marzo de 2024.
+
+4. Obtener el número total de órdenes
+   Consulta:
+
+sql
+Copiar
+Editar
+SELECT COUNT(\*) AS TotalOrdenes FROM Ordenes;
+Explicación:
+Cuenta el número total de registros en la tabla Ordenes.
+
+5. Obtener los nombres de los clientes y las ciudades donde residen
+   Consulta:
+
+sql
+Copiar
+Editar
+SELECT Nombre, Ciudad FROM Clientes;
+Explicación:
+Selecciona solo las columnas Nombre y Ciudad de la tabla Clientes.
+
+6. Obtener los productos con un precio mayor a 100
+   Consulta:
+
+sql
+Copiar
+Editar
+SELECT \* FROM Productos WHERE Precio > 100;
+Explicación:
+Filtra los productos cuyo precio es mayor a 100.
+
+7. Obtener el precio medio de los productos
+   Consulta:
+
+sql
+Copiar
+Editar
+SELECT AVG(Precio) AS PrecioMedio FROM Productos;
+Explicación:
+Calcula el precio promedio de todos los productos.
+
+8. Obtener la cantidad total de productos comprados en cada orden
+   Consulta:
+
+sql
+Copiar
+Editar
+SELECT OrdenID, SUM(Cantidad) AS TotalProductos
+FROM Ordenes
+GROUP BY OrdenID;
+Explicación:
+Agrupa las órdenes y suma la cantidad de productos comprados en cada una.
+
+9. Obtener los clientes que han realizado compras
+   Consulta:
+
+sql
+Copiar
+Editar
+SELECT DISTINCT Clientes.Nombre
+FROM Clientes
+INNER JOIN Ordenes ON Clientes.ClienteID = Ordenes.ClienteID;
+Explicación:
+Utiliza INNER JOIN para encontrar los clientes que tienen órdenes en la tabla Ordenes.
+
+10. Obtener la categoría de productos más comprada por cada cliente
+    Consulta:
+
+sql
+Copiar
+Editar
+WITH CategoriaMasComprada AS (
+SELECT c.Nombre AS Cliente, p.Categoria, COUNT(_) AS TotalComprado,
+RANK() OVER (PARTITION BY c.ClienteID ORDER BY COUNT(_) DESC) AS Rango
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+INNER JOIN Clientes c ON o.ClienteID = c.ClienteID
+GROUP BY c.Nombre, p.Categoria
+)
+SELECT Cliente, Categoria, TotalComprado
+FROM CategoriaMasComprada
+WHERE Rango = 1;
+Explicación:
+Calcula la categoría más comprada por cada cliente utilizando RANK().
+
+11. Obtener el cliente con más compras realizadas
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT Clientes.Nombre, COUNT(Ordenes.OrdenID) AS TotalCompras
+FROM Clientes
+INNER JOIN Ordenes ON Clientes.ClienteID = Ordenes.ClienteID
+GROUP BY Clientes.Nombre
+ORDER BY TotalCompras DESC
+LIMIT 1;
+Explicación:
+Ordena a los clientes por la cantidad de órdenes realizadas y muestra el que más ha comprado.
+
+12. Obtener el producto más caro
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT \* FROM Productos ORDER BY Precio DESC LIMIT 1;
+Explicación:
+Ordena los productos por precio de mayor a menor y devuelve el más caro.
+
+13. Obtener el total de ventas por cada producto
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT p.Nombre, SUM(o.Cantidad) AS TotalVendido
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+GROUP BY p.Nombre;
+Explicación:
+Calcula la cantidad total de cada producto vendido.
+
+14. Obtener la ciudad con más clientes
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT Ciudad, COUNT(\*) AS TotalClientes
+FROM Clientes
+GROUP BY Ciudad
+ORDER BY TotalClientes DESC
+LIMIT 1;
+Explicación:
+Cuenta los clientes en cada ciudad y devuelve la que más tiene.
+
+15. Obtener los productos que nunca han sido comprados
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT p.\*
+FROM Productos p
+LEFT JOIN Ordenes o ON p.ProductoID = o.ProductoID
+WHERE o.ProductoID IS NULL;
+Explicación:
+Usa LEFT JOIN para encontrar productos sin órdenes.
+
+16. Obtener los clientes que no han realizado compras
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT c.\*
+FROM Clientes c
+LEFT JOIN Ordenes o ON c.ClienteID = o.ClienteID
+WHERE o.ClienteID IS NULL;
+Explicación:
+Encuentra clientes sin órdenes.
+
+Estos ejercicios abarcan la mayoría de las consultas típicas en entrevistas de SQL. ¡Practícalos y dime si quieres más! 🚀
+
+Tú dijiste:
+si unas 10 mas y un poco mas dificiles
+ChatGPT Plus
+¡Vamos a subir el nivel! Aquí tienes 10 ejercicios más avanzados de SQL para reforzar tu preparación. Incluirán WINDOW FUNCTIONS, CTE, SUBQUERIES, HAVING, y otras técnicas avanzadas.
+
+Tablas de referencia
+Seguimos usando las tablas:
+
+Productos (ProductoID, Nombre, Categoria, Precio)
+
+Clientes (ClienteID, Nombre, Ciudad)
+
+Ordenes (OrdenID, ClienteID, ProductoID, FechaOrden, Cantidad)
+
+Ejercicios Avanzados 17. Obtener el producto más vendido en cantidad total
+Consulta:
+
+sql
+Copiar
+Editar
+SELECT p.Nombre, SUM(o.Cantidad) AS TotalVendido
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+GROUP BY p.Nombre
+ORDER BY TotalVendido DESC
+LIMIT 1;
+Explicación:
+Se suman las cantidades vendidas por producto y se ordenan en orden descendente, mostrando el producto con más unidades vendidas.
+
+18. Obtener el cliente con el mayor gasto total en compras
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT c.Nombre, SUM(o.Cantidad \* p.Precio) AS TotalGastado
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+INNER JOIN Clientes c ON o.ClienteID = c.ClienteID
+GROUP BY c.Nombre
+ORDER BY TotalGastado DESC
+LIMIT 1;
+Explicación:
+Multiplica la cantidad comprada por el precio del producto para obtener el gasto total por cliente y ordena de mayor a menor.
+
+19. Obtener los productos cuyo precio es superior al precio medio de todos los productos
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT Nombre, Precio
+FROM Productos
+WHERE Precio > (SELECT AVG(Precio) FROM Productos);
+Explicación:
+Usa una subconsulta para calcular el precio medio de todos los productos y filtra los que tienen un precio superior.
+
+20. Obtener el porcentaje de ventas de cada categoría respecto al total
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT p.Categoria,
+SUM(o.Cantidad) AS TotalVendidos,
+(SUM(o.Cantidad) \* 100.0) / (SELECT SUM(Cantidad) FROM Ordenes) AS PorcentajeVentas
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+GROUP BY p.Categoria
+ORDER BY PorcentajeVentas DESC;
+Explicación:
+Calcula el porcentaje de ventas de cada categoría sobre el total general.
+
+21. Obtener el producto más reciente comprado por cada cliente
+    Consulta:
+
+sql
+Copiar
+Editar
+WITH UltimaCompra AS (
+SELECT o.ClienteID, o.ProductoID, o.FechaOrden,
+RANK() OVER (PARTITION BY o.ClienteID ORDER BY o.FechaOrden DESC) AS rnk
+FROM Ordenes o
+)
+SELECT c.Nombre AS Cliente, p.Nombre AS Producto, u.FechaOrden
+FROM UltimaCompra u
+INNER JOIN Clientes c ON u.ClienteID = c.ClienteID
+INNER JOIN Productos p ON u.ProductoID = p.ProductoID
+WHERE u.rnk = 1;
+Explicación:
+Se usa RANK() para encontrar la orden más reciente de cada cliente y se filtra solo la primera (rnk = 1).
+
+22. Obtener los tres productos más vendidos por cantidad
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT p.Nombre, SUM(o.Cantidad) AS TotalVendido
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+GROUP BY p.Nombre
+ORDER BY TotalVendido DESC
+LIMIT 3;
+Explicación:
+Agrupa y ordena los productos por cantidad vendida y muestra los tres más vendidos.
+
+23. Encontrar los clientes que han comprado en más de una categoría de producto
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT c.Nombre
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+INNER JOIN Clientes c ON o.ClienteID = c.ClienteID
+GROUP BY c.Nombre
+HAVING COUNT(DISTINCT p.Categoria) > 1;
+Explicación:
+Se usa COUNT(DISTINCT p.Categoria) para contar cuántas categorías distintas ha comprado cada cliente. Se filtran aquellos que han comprado en más de una.
+
+24. Encontrar los productos que se han vendido en todas las ciudades
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT p.Nombre
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+INNER JOIN Clientes c ON o.ClienteID = c.ClienteID
+GROUP BY p.Nombre
+HAVING COUNT(DISTINCT c.Ciudad) = (SELECT COUNT(DISTINCT Ciudad) FROM Clientes);
+Explicación:
+Se compara el número de ciudades en las que un producto ha sido vendido con el total de ciudades de clientes, asegurando que el producto se haya vendido en todas.
+
+25. Obtener la primera compra realizada por cada cliente
+    Consulta:
+
+sql
+Copiar
+Editar
+WITH PrimeraCompra AS (
+SELECT ClienteID, ProductoID, FechaOrden,
+RANK() OVER (PARTITION BY ClienteID ORDER BY FechaOrden ASC) AS rnk
+FROM Ordenes
+)
+SELECT c.Nombre AS Cliente, p.Nombre AS Producto, pc.FechaOrden
+FROM PrimeraCompra pc
+INNER JOIN Clientes c ON pc.ClienteID = c.ClienteID
+INNER JOIN Productos p ON pc.ProductoID = p.ProductoID
+WHERE pc.rnk = 1;
+Explicación:
+Usa RANK() para obtener la primera compra de cada cliente.
+
+26. Determinar qué clientes han gastado más que el promedio de gasto de todos los clientes
+    Consulta:
+
+sql
+Copiar
+Editar
+WITH GastoPorCliente AS (
+SELECT ClienteID, SUM(o.Cantidad \* p.Precio) AS TotalGastado
+FROM Ordenes o
+INNER JOIN Productos p ON o.ProductoID = p.ProductoID
+GROUP BY ClienteID
+)
+SELECT c.Nombre, g.TotalGastado
+FROM GastoPorCliente g
+INNER JOIN Clientes c ON g.ClienteID = c.ClienteID
+WHERE g.TotalGastado > (SELECT AVG(TotalGastado) FROM GastoPorCliente);
+Explicación:
+Se calcula el gasto total de cada cliente y se comparan contra el promedio general.
+
+27. Obtener el número de días entre la primera y la última compra de cada cliente
+    Consulta:
+
+sql
+Copiar
+Editar
+SELECT c.Nombre,
+DATEDIFF(MAX(o.FechaOrden), MIN(o.FechaOrden)) AS DiasEntreCompras
+FROM Ordenes o
+INNER JOIN Clientes c ON o.ClienteID = c.ClienteID
+GROUP BY c.Nombre;
+Explicación:
+Calcula la diferencia de días entre la primera y la última compra de cada cliente.
